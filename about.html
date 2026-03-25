@@ -167,14 +167,14 @@
         </section>
     </main>
 
-    <footer class="footer" style="background: #1A2B4C; color: #abb8cc; padding: 60px 0; margin-top: 0;">
-        <div class="container">
-            <span style="font-size:20px; font-weight:700; color:#fff; display:block; margin-bottom:20px;">KLSEA 한국법률서비스교육협회</span>
-            <p style="font-size:14px; margin-bottom:6px;">서울특별시 서초구 법조타운로 123, 법률교육빌딩 5층</p>
-            <p style="font-size:14px; margin-bottom:6px;">대표전화: 02-123-4567 | 팩스: 02-123-4568 | 이메일: info@klsea.or.kr</p>
-            <p style="margin-top:30px; padding-top:20px; border-top:1px solid rgba(255,255,255,0.1); font-size:13px;">Copyright © 2024 KLSEA. All Rights Reserved.</p>
-        </div>
-    </footer>
-
+    <!-- Footer Section -->
+   <div id="footer-placeholder"></div>
+    <script>
+    fetch('/footer.html')
+        .then(res => res.text())
+        .then(html => {
+        document.getElementById('footer-placeholder').innerHTML = html;
+        });
+    </script>
 </body>
 </html>
