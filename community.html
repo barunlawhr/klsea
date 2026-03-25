@@ -1,0 +1,187 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>고객지원 | 한국법률서비스교육협회 (KLSEA)</title>
+    <link rel="stylesheet" as="style" crossorigin href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.8/dist/web/static/pretendard.css" />
+    <style>
+        :root {
+            --primary: #1A2B4C; --secondary: #2D5A9E; --accent: #C5A059;
+            --white: #FFFFFF; --light-bg: #F8F9FA; --border: #E1E1E1; --text-main: #333333;
+        }
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body { font-family: 'Pretendard', sans-serif; line-height: 1.7; color: var(--text-main); }
+        .container { max-width: 1100px; margin: 0 auto; padding: 0 20px; }
+        
+        /* Header (공통) */
+        .header { height: 80px; display: flex; align-items: center; border-bottom: 1px solid #eee; background: #fff; position: sticky; top: 0; z-index: 1000; }
+        .header .container { width: 100%; display: flex; justify-content: space-between; align-items: center; }
+        .logo { font-size: 22px; font-weight: 800; color: var(--primary); text-decoration: none; }
+        .gnb ul { display: flex; gap: 30px; list-style: none; }
+        .gnb a { font-weight: 600; text-decoration: none; color: inherit; }
+        .gnb a:hover, .gnb a.active { color: var(--secondary); }
+
+        /* Sub Hero - 법원 도서관 이미지 */
+        .sub-hero { 
+            background: linear-gradient(rgba(26, 43, 76, 0.8), rgba(26, 43, 76, 0.8)), 
+                        url('https://images.unsplash.com/photo-1521587760476-6c12a4b040da?auto=format&fit=crop&q=80&w=1920');
+            background-size: cover; background-position: center;
+            padding: 100px 0; color: #fff; text-align: center;
+        }
+
+        section { padding: 80px 0; }
+        .section-title { margin-bottom: 40px; text-align: center; }
+        .section-title h2 { font-size: 32px; color: var(--primary); margin-bottom: 10px; }
+        .section-title .bar { width: 50px; height: 3px; background: var(--accent); margin: 0 auto; }
+
+        /* Notice Table */
+        .notice-table { width: 100%; border-collapse: collapse; margin-bottom: 60px; }
+        .notice-table th { background: var(--light-bg); padding: 15px; border-bottom: 2px solid var(--primary); }
+        .notice-table td { padding: 15px; border-bottom: 1px solid var(--border); text-align: center; }
+        .notice-table td.title { text-align: left; font-weight: 500; cursor: pointer; }
+        .notice-table td.title:hover { text-decoration: underline; color: var(--secondary); }
+
+        /* FAQ Accordion */
+        .faq-item { border: 1px solid var(--border); margin-bottom: 10px; border-radius: 4px; overflow: hidden; }
+        .faq-q { background: #fff; padding: 20px; font-weight: 700; cursor: pointer; display: flex; justify-content: space-between; }
+        .faq-q::after { content: '+'; color: var(--accent); }
+        .faq-a { background: var(--light-bg); padding: 20px; display: none; border-top: 1px solid var(--border); color: #666; }
+
+        /* Inquiry Form */
+        .contact-box { background: var(--primary); color: #fff; padding: 60px; border-radius: 12px; }
+        .contact-box h3 { font-size: 24px; margin-bottom: 30px; text-align: center; color: var(--accent); }
+        .form-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 20px; }
+        .form-group { display: flex; flex-direction: column; gap: 8px; margin-bottom: 20px; }
+        .full { grid-column: span 2; }
+        input, textarea { padding: 12px; border-radius: 4px; border: none; font-size: 16px; }
+        .btn-send { background: var(--accent); color: white; border: none; padding: 15px; font-weight: 700; cursor: pointer; margin-top: 10px; }
+
+        .footer { background: #222; color: #999; padding: 60px 0; font-size: 14px; margin-top: 60px; }
+    </style>
+</head>
+<body>
+
+    <header class="header">
+        <div class="container">
+            <a href="index.html" class="logo" style="text-decoration:none; font-size:22px; font-weight:800; color:var(--primary);">KLSEA <span style="font-size:14px; font-weight:400; color:#777; margin-left:8px;">한국법률서비스교육협회</span></a>
+            <nav class="gnb">
+                <ul>
+                    <li><a href="index.html">홈</a></li>
+                    <li><a href="about.html">협회소개</a></li>
+                    <li><a href="education.html">교육사업</a></li>
+                    <li><a href="certification.html">자격증시험</a></li>
+                    <li><a href="community.html" class="active">고객지원</a></li>
+                </ul>
+            </nav>
+            <div style="display:flex; align-items:center; gap:15px;">
+                <a href="certification.html" style="padding:7px 14px; border:1.5px solid var(--accent); border-radius:4px; color:var(--accent); font-size:14px; font-weight:700; text-decoration:none;">자격증 진위확인</a>
+            </div>
+        </div>
+    </header>
+
+    <section class="sub-hero">
+        <div class="container">
+            <h1>고객지원 센터</h1>
+            <p>협회는 교육생 여러분의 목소리에 귀를 기울입니다.</p>
+        </div>
+    </section>
+
+    <main class="container">
+        <!-- 공지사항 -->
+        <section>
+            <div class="section-title">
+                <h2>공지사항</h2>
+                <div class="bar"></div>
+            </div>
+            <table class="notice-table">
+                <thead>
+                    <tr>
+                        <th width="10%">번호</th>
+                        <th>제목</th>
+                        <th width="15%">작성일</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>3</td>
+                        <td class="title">[공지] 2024년 상반기 AI 법률실무 과정 모집 안내</td>
+                        <td>2024.03.15</td>
+                    </tr>
+                    <tr>
+                        <td>2</td>
+                        <td class="title">[안내] 자격증 시험 응시료 환불 규정 변경 고시</td>
+                        <td>2024.03.10</td>
+                    </tr>
+                    <tr>
+                        <td>1</td>
+                        <td class="title">[필독] 개인정보 처리방침 개정 안내</td>
+                        <td>2024.03.01</td>
+                    </tr>
+                </tbody>
+            </table>
+        </section>
+
+        <!-- FAQ -->
+        <section style="background: var(--light-bg); padding: 80px 20px; border-radius: 12px;">
+            <div class="section-title">
+                <h2>자주 묻는 질문 (FAQ)</h2>
+                <div class="bar"></div>
+            </div>
+            <div style="max-width: 800px; margin: 0 auto;">
+                <div class="faq-item">
+                    <div class="faq-q">비전공자도 AI 법률 실무 과정을 수강할 수 있나요?</div>
+                    <div class="faq-a">네, 가능합니다. 기초 법률 지식부터 AI 툴 활용법까지 단계별로 교육을 진행하므로 초보자도 충분히 따라오실 수 있습니다.</div>
+                </div>
+                <div class="faq-item">
+                    <div class="faq-q">자격증 발급은 합격 후 얼마나 걸리나요?</div>
+                    <div class="faq-a">최종 합격자 발표 후 영업일 기준 7~10일 이내에 실물 자격증이 발송됩니다. 디지털 자격증은 즉시 발급 가능합니다.</div>
+                </div>
+            </div>
+        </section>
+
+        <!-- 1:1 문의 -->
+        <section>
+            <div class="contact-box">
+                <h3>1:1 온라인 문의</h3>
+                <form>
+                    <div class="form-grid">
+                        <div class="form-group">
+                            <input type="text" placeholder="성함" required>
+                        </div>
+                        <div class="form-group">
+                            <input type="email" placeholder="이메일 주소" required>
+                        </div>
+                        <div class="form-group full">
+                            <input type="text" placeholder="문의 제목">
+                        </div>
+                        <div class="form-group full">
+                            <textarea rows="5" placeholder="문의하실 내용을 상세히 적어주세요."></textarea>
+                        </div>
+                    </div>
+                    <button type="button" class="btn-send full" onclick="alert('문의가 접수되었습니다.')">문의하기</button>
+                </form>
+            </div>
+        </section>
+    </main>
+
+    <footer class="footer" style="background: #1A2B4C; color: #abb8cc; padding: 60px 0; margin-top: 0;">
+        <div class="container">
+            <span style="font-size:20px; font-weight:700; color:#fff; display:block; margin-bottom:20px;">KLSEA 한국법률서비스교육협회</span>
+            <p style="font-size:14px; margin-bottom:6px;">서울특별시 서초구 법조타운로 123, 법률교육빌딩 5층</p>
+            <p style="font-size:14px; margin-bottom:6px;">대표전화: 02-123-4567 | 팩스: 02-123-4568 | 이메일: info@klsea.or.kr</p>
+            <p style="margin-top:30px; padding-top:20px; border-top:1px solid rgba(255,255,255,0.1); font-size:13px;">Copyright © 2024 KLSEA. All Rights Reserved.</p>
+        </div>
+    </footer>
+
+    <script>
+        // FAQ 아코디언 기능
+        document.querySelectorAll('.faq-q').forEach(q => {
+            q.addEventListener('click', () => {
+                const a = q.nextElementSibling;
+                a.style.display = a.style.display === 'block' ? 'none' : 'block';
+            });
+        });
+    </script>
+</body>
+</html>

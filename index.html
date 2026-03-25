@@ -1,0 +1,249 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>한국법률서비스교육협회 (KLSEA) | 공식 웹사이트</title>
+    <!-- 폰트: 프리텐다드 적용 -->
+    <link rel="stylesheet" as="style" crossorigin href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.8/dist/web/static/pretendard.css" />
+    
+    <style>
+        /* [디자인 시스템] */
+        :root {
+            --primary: #1A2B4C;   /* Deep Navy: 신뢰, 권위 */
+            --secondary: #2D5A9E; /* Royal Blue: 전문성 */
+            --accent: #C5A059;    /* Muted Gold: 가치, 인증 */
+            --white: #FFFFFF;
+            --light-bg: #F4F7F9;
+            --text-main: #333333;
+            --text-muted: #777777;
+        }
+
+        /* [기본 설정] */
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body { 
+            font-family: 'Pretendard', -apple-system, BlinkMacSystemFont, system-ui, sans-serif; 
+            line-height: 1.6; 
+            color: var(--text-main); 
+            background: var(--white); 
+        }
+        a { text-decoration: none; color: inherit; transition: 0.3s; }
+        ul { list-style: none; }
+        .container { max-width: 1200px; margin: 0 auto; padding: 0 20px; }
+        .gold { color: var(--accent) !important; font-weight: 700; }
+
+        /* [Header: 네비게이션] */
+        .header { 
+            height: 90px; 
+            display: flex; 
+            align-items: center; 
+            background: var(--white); 
+            border-bottom: 2px solid var(--light-bg);
+            position: sticky; 
+            top: 0; 
+            z-index: 1000;
+        }
+        .header .container { 
+            width: 100%; 
+            display: flex; 
+            justify-content: space-between; 
+            align-items: center; 
+        }
+        .logo { font-size: 26px; font-weight: 800; color: var(--primary); letter-spacing: -1px; }
+        .logo span { font-size: 14px; font-weight: 400; color: var(--text-muted); margin-left: 10px; vertical-align: middle; }
+
+        .gnb ul { display: flex; gap: 40px; }
+        .gnb a { font-size: 17px; font-weight: 600; }
+        .gnb a:hover { color: var(--secondary); }
+        .gnb a.active { color: var(--secondary); border-bottom: 2px solid var(--secondary); padding-bottom: 5px; }
+
+        .util-menu { display: flex; align-items: center; gap: 15px; }
+        .btn-verify { 
+            padding: 8px 16px; 
+            border: 1.5px solid var(--accent); 
+            border-radius: 4px; 
+            color: var(--accent); 
+            font-size: 14px; 
+            font-weight: 700; 
+        }
+        .btn-verify:hover { background: var(--accent); color: white; }
+
+        /* [Hero: 메인 비주얼] */
+        .hero { 
+            height: 600px; 
+            background: linear-gradient(135deg, rgba(26, 43, 76, 0.9) 0%, rgba(45, 90, 158, 0.8) 100%),
+                        url('https://images.unsplash.com/photo-1589829545856-d10d557cf95f?auto=format&fit=crop&q=80&w=1920');
+            background-size: cover;
+            background-position: center;
+            display: flex;
+            align-items: center;
+            color: var(--white);
+            text-align: center;
+        }
+        .hero-content { width: 100%; }
+        .hero h2 { font-size: 52px; font-weight: 800; margin-bottom: 25px; line-height: 1.2; }
+        .hero p { font-size: 22px; font-weight: 300; margin-bottom: 45px; opacity: 0.9; }
+        
+        .hero-btns .btn { 
+            padding: 18px 40px; 
+            border-radius: 4px; 
+            font-size: 18px; 
+            font-weight: 600; 
+            display: inline-block;
+        }
+        .btn-main { background: var(--accent); color: white; margin-right: 15px; }
+        .btn-main:hover { background: #b08d4a; transform: translateY(-3px); }
+        .btn-sub { border: 1.5px solid white; color: white; }
+        .btn-sub:hover { background: white; color: var(--primary); }
+
+        /* [Quick Menu: 4가지 핵심 링크] */
+        .quick-section { margin-top: -80px; margin-bottom: 100px; position: relative; z-index: 10; }
+        .quick-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 25px; }
+        .quick-card { 
+            background: var(--white); 
+            padding: 45px 25px; 
+            text-align: center; 
+            border-radius: 12px; 
+            box-shadow: 0 15px 35px rgba(0,0,0,0.1);
+            transition: 0.4s;
+            border-top: 4px solid transparent;
+            display: block; /* 클릭 가능하도록 설정 */
+        }
+        .quick-card:hover { transform: translateY(-15px); border-top-color: var(--accent); }
+        .quick-card .icon { font-size: 45px; margin-bottom: 20px; display: block; }
+        .quick-card h3 { font-size: 20px; color: var(--primary); margin-bottom: 12px; }
+        .quick-card p { font-size: 14px; color: var(--text-muted); line-height: 1.5; }
+
+        /* [Information: 공지사항 요약] */
+        .info-section { padding: 80px 0; background: var(--light-bg); }
+        .section-title { text-align: center; margin-bottom: 60px; }
+        .section-title h2 { font-size: 32px; color: var(--primary); margin-bottom: 10px; }
+        .section-title .bar { width: 60px; height: 4px; background: var(--accent); margin: 0 auto; }
+
+        /* [Footer: 하단 정보] */
+        .footer { background: var(--primary); color: #abb8cc; padding: 70px 0; font-size: 15px; }
+        .footer-logo { font-size: 22px; font-weight: 700; color: white; margin-bottom: 25px; display: block; }
+        .footer-address p { margin-bottom: 8px; }
+        .copyright { margin-top: 40px; padding-top: 25px; border-top: 1px solid rgba(255,255,255,0.1); font-size: 13px; }
+
+        /* 반응형 대응 */
+        @media (max-width: 1024px) {
+            .quick-grid { grid-template-columns: repeat(2, 1fr); }
+            .hero h2 { font-size: 38px; }
+        }
+        @media (max-width: 768px) {
+            .gnb, .util-menu { display: none; } /* 모바일용 메뉴는 추후 구현 가능 */
+            .quick-grid { grid-template-columns: 1fr; }
+            .hero h2 { font-size: 30px; }
+            .hero p { font-size: 18px; }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Header Section -->
+    <header class="header">
+        <div class="container">
+            <h1 class="logo"><a href="index.html">KLSEA <span>한국법률서비스교육협회</span></a></h1>
+            <nav class="gnb">
+                <ul>
+                    <li><a href="index.html" class="active">홈</a></li>
+                    <li><a href="about.html">협회소개</a></li>
+                    <li><a href="education.html">교육사업</a></li>
+                    <li><a href="certification.html">자격증시험</a></li>
+                    <li><a href="community.html">고객지원</a></li>
+                </ul>
+            </nav>
+            <div class="util-menu">
+                <a href="certification.html" class="btn-verify">자격증 진위확인</a>
+                <a href="#" style="font-weight: 600; font-size: 14px;">로그인</a>
+            </div>
+        </div>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="hero">
+        <div class="container hero-content">
+            <h2>법률 실무와 <span class="gold">AI 기술</span>의 만남<br>미래를 선도하는 인재의 기준</h2>
+            <p>전통적 법률 교육을 넘어 리걸테크 시대를 선도할 전문 지식을 제공합니다.</p>
+            <div class="hero-btns">
+                <a href="education.html" class="btn btn-main">교육과정 둘러보기</a>
+                <a href="certification.html" class="btn btn-sub">시험 일정 확인</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Quick Menu Section: 모든 링크 연결 완료 -->
+    <div class="container quick-section">
+        <div class="quick-grid">
+            <!-- 1. 원서접수 -> 자격증시험 페이지로 -->
+            <a href="certification.html" class="quick-card">
+                <span class="icon">📝</span>
+                <h3>원서접수</h3>
+                <p>국가공인/민간 자격시험<br>온라인 간편 접수 시스템</p>
+            </a>
+            <!-- 2. 온라인 강의 -> 교육사업 페이지로 -->
+            <a href="education.html" class="quick-card">
+                <span class="icon">🖥️</span>
+                <h3>온라인 강의</h3>
+                <p>AI 활용 법률 실무 및<br>최신 리걸테크 커리큘럼</p>
+            </a>
+            <!-- 3. 합격조회 -> 자격증시험 페이지 하단으로 -->
+            <a href="certification.html" class="quick-card">
+                <span class="icon">🏆</span>
+                <h3>합격조회</h3>
+                <p>나의 시험 성적 확인 및<br>합격 여부 실시간 조회</p>
+            </a>
+            <!-- 4. 공지사항 -> 고객지원 페이지로 -->
+            <a href="community.html" class="quick-card">
+                <span class="icon">📜</span>
+                <h3>공지사항</h3>
+                <p>협회 주요 소식 및<br>교육/시험 관련 긴급 공지</p>
+            </a>
+        </div>
+    </div>
+
+    <!-- Info Section -->
+    <section class="info-section">
+        <div class="container">
+            <div class="section-title">
+                <h2>협회 핵심 가치</h2>
+                <div class="bar"></div>
+            </div>
+            <div style="display: grid; grid-template-columns: repeat(3, 1fr); gap: 40px; text-align: center;">
+                <div>
+                    <img src="https://images.unsplash.com/photo-1505664194779-8beaceb93744?auto=format&fit=crop&q=80&w=400" style="width:100%; border-radius:10px; margin-bottom:20px;" alt="신뢰">
+                    <h4 style="color:var(--primary); font-size:20px; margin-bottom:10px;">전문성 (Professionalism)</h4>
+                    <p style="color:var(--text-muted); font-size:15px;">검증된 커리큘럼과 최고의 강사진을 통한 실무 중심 교육</p>
+                </div>
+                <div>
+                    <img src="https://images.unsplash.com/photo-1451187580459-43490279c0fa?auto=format&fit=crop&q=80&w=400" style="width:100%; border-radius:10px; margin-bottom:20px;" alt="AI">
+                    <h4 style="color:var(--primary); font-size:20px; margin-bottom:10px;">혁신 (Innovation)</h4>
+                    <p style="color:var(--text-muted); font-size:15px;">리걸테크 시대를 대비하는 AI 기술 융합 능력 배양</p>
+                </div>
+                <div>
+                    <img src="https://images.unsplash.com/photo-1589994160839-163cd2b5cfdf?auto=format&fit=crop&q=80&w=400" style="width:100%; border-radius:10px; margin-bottom:20px;" alt="법전">
+                    <h4 style="color:var(--primary); font-size:20px; margin-bottom:10px;">공신력 (Authority)</h4>
+                    <p style="color:var(--text-muted); font-size:15px;">엄격한 자격 검정을 통한 표준화된 법률 인재 양성</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer Section -->
+    <footer class="footer">
+        <div class="container">
+            <span class="footer-logo">KLSEA 한국법률서비스교육협회</span>
+            <div class="footer-address">
+                <p>서울특별시 서초구 법조타운로 123, 법률교육빌딩 5층</p>
+                <p>대표전화: 02-123-4567 | 팩스: 02-123-4568 | 이메일: info@klsea.or.kr</p>
+                <p>자격검정 운영등록번호: 제 2024-000XXX호</p>
+            </div>
+            <div class="copyright">
+                Copyright © 2024 KLSEA Korea Legal Service Education Association. All Rights Reserved.
+            </div>
+        </div>
+    </footer>
+
+</body>
+</html>

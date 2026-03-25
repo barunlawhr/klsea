@@ -1,0 +1,233 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>자격증시험 | 한국법률서비스교육협회 (KLSEA)</title>
+    <link rel="stylesheet" as="style" crossorigin href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.8/dist/web/static/pretendard.css" />
+    <style>
+        :root {
+            --primary: #1A2B4C;
+            --secondary: #2D5A9E;
+            --accent: #C5A059;
+            --white: #FFFFFF;
+            --light-bg: #F8F9FA;
+            --border: #E1E1E1;
+            --text-main: #333333;
+        }
+
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body { font-family: 'Pretendard', sans-serif; line-height: 1.7; color: var(--text-main); background: #fff; }
+        .container { max-width: 1100px; margin: 0 auto; padding: 0 20px; }
+        
+        /* Header */
+        .header { height: 80px; display: flex; align-items: center; border-bottom: 1px solid #eee; background: #fff; position: sticky; top: 0; z-index: 1000; }
+        .header .container { width: 100%; display: flex; justify-content: space-between; align-items: center; }
+        .logo { font-size: 22px; font-weight: 800; color: var(--primary); text-decoration: none; }
+        .gnb ul { display: flex; gap: 30px; list-style: none; }
+        .gnb a { font-weight: 600; text-decoration: none; color: inherit; }
+        .gnb a:hover, .gnb a.active { color: var(--secondary); }
+
+        /* Sub Hero */
+        .sub-hero { 
+            background: linear-gradient(rgba(26, 43, 76, 0.8), rgba(26, 43, 76, 0.8)), 
+                        url('https://images.unsplash.com/photo-1505664194779-8beaceb93744?auto=format&fit=crop&q=80&w=1920');
+            background-size: cover; background-position: center;
+            padding: 100px 0; color: #fff; text-align: center;
+        }
+        .sub-hero h1 { font-size: 40px; margin-bottom: 15px; }
+
+        /* Section Styling */
+        section { padding: 80px 0; }
+        .section-title { margin-bottom: 40px; border-left: 5px solid var(--accent); padding-left: 20px; }
+        .section-title h2 { font-size: 28px; color: var(--primary); }
+        .section-title p { color: #777; font-size: 16px; }
+
+        /* Exam Table */
+        .table-wrapper { overflow-x: auto; margin-bottom: 40px; }
+        table { width: 100%; border-collapse: collapse; border-top: 2px solid var(--primary); }
+        th { background: var(--light-bg); padding: 15px; border-bottom: 1px solid var(--border); font-weight: 700; color: var(--primary); }
+        td { padding: 15px; border-bottom: 1px solid var(--border); text-align: center; font-size: 15px; }
+        .status-on { color: var(--secondary); font-weight: 700; border: 1px solid var(--secondary); padding: 3px 8px; border-radius: 4px; }
+
+        /* Application Form */
+        .apply-form-box { background: var(--light-bg); padding: 50px; border-radius: 12px; border: 1px solid var(--border); }
+        .form-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 25px; }
+        .form-group { display: flex; flex-direction: column; gap: 8px; }
+        .form-group.full { grid-column: span 2; }
+        label { font-weight: 700; color: var(--primary); font-size: 15px; }
+        input, select, textarea { 
+            padding: 12px; border: 1px solid var(--border); border-radius: 4px; font-size: 16px; font-family: inherit;
+        }
+        input:focus { border-color: var(--secondary); outline: none; box-shadow: 0 0 5px rgba(45, 90, 158, 0.2); }
+
+        .form-footer { margin-top: 40px; text-align: center; }
+        .btn-submit { 
+            background: var(--accent); color: white; border: none; padding: 18px 60px; 
+            font-size: 18px; font-weight: 700; border-radius: 4px; cursor: pointer; transition: 0.3s;
+        }
+        .btn-submit:hover { background: #b08d4a; transform: translateY(-2px); }
+
+        /* Terms Box */
+        .terms-box { 
+            background: #fff; border: 1px solid var(--border); padding: 15px; 
+            height: 120px; overflow-y: scroll; font-size: 13px; color: #888; margin-bottom: 15px;
+        }
+
+        /* Footer */
+        .footer { background: #222; color: #999; padding: 60px 0; font-size: 14px; margin-top: 60px; }
+    </style>
+</head>
+<body>
+
+    <header class="header">
+        <div class="container">
+            <a href="index.html" class="logo" style="text-decoration:none;">KLSEA <span style="font-size:14px; font-weight:400; color:#777; margin-left:8px;">한국법률서비스교육협회</span></a>
+            <nav class="gnb">
+                <ul>
+                    <li><a href="index.html">홈</a></li>
+                    <li><a href="about.html">협회소개</a></li>
+                    <li><a href="education.html">교육사업</a></li>
+                    <li><a href="certification.html" class="active">자격증시험</a></li>
+                    <li><a href="community.html">고객지원</a></li>
+                </ul>
+            </nav>
+            <div style="display:flex; align-items:center; gap:15px;">
+                <a href="certification.html" style="padding:7px 14px; border:1.5px solid var(--accent); border-radius:4px; color:var(--accent); font-size:14px; font-weight:700; text-decoration:none;">자격증 진위확인</a>
+            </div>
+        </div>
+    </header>
+
+    <section class="sub-hero">
+        <div class="container">
+            <h1>자격증 시험 안내 및 접수</h1>
+            <p>공정한 검정을 통해 법률 서비스 전문가의 자격을 인증합니다.</p>
+        </div>
+    </section>
+
+    <main class="container">
+        
+        <!-- 1. 시험 일정 안내 -->
+        <section id="schedule">
+            <div class="section-title">
+                <h2>2024년 정기 시험 일정</h2>
+                <p>각 차수별 접수 기간을 반드시 확인하시기 바랍니다.</p>
+            </div>
+            <div class="table-wrapper">
+                <table>
+                    <thead>
+                        <tr>
+                            <th>회차</th>
+                            <th>시험 종목</th>
+                            <th>원서 접수 기간</th>
+                            <th>시험일</th>
+                            <th>합격자 발표</th>
+                            <th>상태</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>제 15회</td>
+                            <td>법률사무관리사 (AI실무)</td>
+                            <td>2024.04.01 ~ 04.15</td>
+                            <td>2024.05.12</td>
+                            <td>2024.05.30</td>
+                            <td><span class="status-on">접수예정</span></td>
+                        </tr>
+                        <tr>
+                            <td>제 16회</td>
+                            <td>리걸테크 지도사</td>
+                            <td>2024.06.01 ~ 06.15</td>
+                            <td>2024.07.07</td>
+                            <td>2024.07.25</td>
+                            <td><span>-</span></td>
+                        </tr>
+                        <tr>
+                            <td>제 17회</td>
+                            <td>법률행정 실무전문가</td>
+                            <td>2024.09.01 ~ 09.15</td>
+                            <td>2024.10.13</td>
+                            <td>2024.10.31</td>
+                            <td><span>-</span></td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </section>
+
+        <!-- 2. 온라인 원서 접수 Form -->
+        <section id="apply">
+            <div class="section-title">
+                <h2>온라인 원서 접수</h2>
+                <p>정확한 정보를 입력해 주세요. 허위 정보 입력 시 불이익이 발생할 수 있습니다.</p>
+            </div>
+
+            <form class="apply-form-box">
+                <div class="form-grid">
+                    <div class="form-group">
+                        <label>시험 종목 선택</label>
+                        <select required>
+                            <option value="">종목을 선택하세요</option>
+                            <option value="legal_ai">법률사무관리사 (AI실무 융합)</option>
+                            <option value="legal_tech">리걸테크 지도사 2급</option>
+                            <option value="legal_admin">법률행정 실무전문가</option>
+                        </select>
+                    </div>
+                    <div class="form-group">
+                        <label>응시 지역</label>
+                        <select required>
+                            <option value="seoul">서울 (본회)</option>
+                            <option value="busan">부산 지부</option>
+                            <option value="daejeon">대전 지부</option>
+                            <option value="gwangju">광주 지부</option>
+                        </select>
+                    </div>
+                    <div class="form-group">
+                        <label>성명 (실명)</label>
+                        <input type="text" placeholder="홍길동" required>
+                    </div>
+                    <div class="form-group">
+                        <label>생년월일</label>
+                        <input type="date" required>
+                    </div>
+                    <div class="form-group">
+                        <label>연락처</label>
+                        <input type="tel" placeholder="010-0000-0000" required>
+                    </div>
+                    <div class="form-group">
+                        <label>이메일</label>
+                        <input type="email" placeholder="example@klsea.or.kr" required>
+                    </div>
+                    <div class="form-group full">
+                        <label>개인정보 수집 및 이용 동의</label>
+                        <div class="terms-box">
+                            제 1조 (목적) 한국법률서비스교육협회는 자격시험 접수 및 관리를 위해 최소한의 개인정보를 수집합니다... 
+                            수집항목: 성명, 연락처, 이메일, 생년월일 등.
+                            보유기간: 자격 유지 기간 및 관련 법령에 따른 보존 기간 내.
+                        </div>
+                        <label style="font-size: 14px; font-weight: 400;">
+                            <input type="checkbox" required> 위 약관에 동의합니다.
+                        </label>
+                    </div>
+                </div>
+
+                <div class="form-footer">
+                    <button type="submit" class="btn-submit">원서 접수하기</button>
+                </div>
+            </form>
+        </section>
+
+    </main>
+
+    <footer class="footer" style="background: #1A2B4C; color: #abb8cc; padding: 60px 0; margin-top: 60px;">
+        <div class="container">
+            <span style="font-size:20px; font-weight:700; color:#fff; display:block; margin-bottom:20px;">KLSEA 한국법률서비스교육협회</span>
+            <p style="font-size:14px; margin-bottom:6px;">서울특별시 서초구 법조타운로 123, 법률교육빌딩 5층</p>
+            <p style="font-size:14px; margin-bottom:6px;">대표전화: 02-123-4567 | 팩스: 02-123-4568 | 이메일: info@klsea.or.kr</p>
+            <p style="font-size:14px; margin-bottom:6px;">본 자격시험은 자격기본법 제17조에 의거하여 운영됩니다.</p>
+            <p style="margin-top:30px; padding-top:20px; border-top:1px solid rgba(255,255,255,0.1); font-size:13px;">Copyright © 2024 KLSEA. All Rights Reserved.</p>
+        </div>
+    </footer>
+
+</body>
+</html>

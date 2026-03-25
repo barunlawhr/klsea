@@ -1,0 +1,227 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>교육사업 | 한국법률서비스교육협회 (KLSEA)</title>
+    <link rel="stylesheet" as="style" crossorigin href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.8/dist/web/static/pretendard.css" />
+    <style>
+        /* [디자인 가이드라인 준수] */
+        :root {
+            --primary: #1A2B4C;   /* Deep Navy */
+            --secondary: #2D5A9E; /* Royal Blue */
+            --accent: #C5A059;    /* Muted Gold */
+            --white: #FFFFFF;
+            --light-bg: #F4F7F9;
+            --text-main: #333333;
+            --text-muted: #666666;
+        }
+
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body { font-family: 'Pretendard', sans-serif; line-height: 1.7; color: var(--text-main); background: #fff; }
+        .container { max-width: 1200px; margin: 0 auto; padding: 0 20px; }
+        
+        /* Header (공통 레이아웃 유지) */
+        .header { height: 80px; display: flex; align-items: center; border-bottom: 1px solid #eee; background: #fff; position: sticky; top: 0; z-index: 1000; }
+        .header .container { width: 100%; display: flex; justify-content: space-between; align-items: center; }
+        .logo { font-size: 22px; font-weight: 800; color: var(--primary); }
+        .gnb ul { display: flex; gap: 30px; }
+        .gnb a { font-weight: 600; text-decoration: none; color: inherit; }
+        .gnb a:hover, .gnb a.active { color: var(--secondary); }
+
+        /* 서브 히어로 섹션 - 법원 기둥 이미지 */
+        .sub-hero { 
+            background: linear-gradient(rgba(26, 43, 76, 0.8), rgba(26, 43, 76, 0.8)), 
+                        url('https://images.unsplash.com/photo-1589829545856-d10d557cf95f?auto=format&fit=crop&q=80&w=1920');
+            background-size: cover; background-position: center;
+            padding: 100px 0; color: #fff; text-align: center;
+        }
+        .sub-hero h1 { font-size: 40px; font-weight: 700; margin-bottom: 15px; }
+        .sub-hero p { font-size: 18px; opacity: 0.8; font-weight: 300; }
+
+        /* 섹션 타이틀 */
+        .section-title { text-align: center; margin-bottom: 60px; }
+        .section-title h2 { font-size: 32px; color: var(--primary); margin-bottom: 15px; }
+        .section-title .bar { width: 50px; height: 3px; background: var(--accent); margin: 0 auto; }
+
+        /* 교육 과정 그리드 - 법전/저울 이미지 활용 */
+        .course-section { padding: 100px 0; }
+        .course-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 30px; }
+        .course-card { 
+            background: #fff; border: 1px solid #e1e1e1; border-radius: 8px; overflow: hidden; 
+            transition: 0.3s; 
+        }
+        .course-card:hover { transform: translateY(-10px); box-shadow: 0 15px 30px rgba(0,0,0,0.1); border-color: var(--accent); }
+        .course-img { height: 200px; overflow: hidden; }
+        .course-img img { width: 100%; height: 100%; object-fit: cover; transition: 0.5s; }
+        .course-card:hover .course-img img { scale: 1.1; }
+        
+        .course-info { padding: 30px; }
+        .course-info .tag { background: var(--light-bg); color: var(--secondary); padding: 4px 10px; border-radius: 4px; font-size: 13px; font-weight: 600; }
+        .course-info h3 { font-size: 22px; margin: 15px 0; color: var(--primary); }
+        .course-info p { color: var(--text-muted); font-size: 15px; margin-bottom: 20px; }
+        .btn-more { color: var(--accent); font-weight: 700; font-size: 15px; text-decoration: none; }
+
+        /* AI 특성화 교육 섹션 - 다크 모드 강조 */
+        .ai-special { background: var(--primary); color: #fff; padding: 100px 0; }
+        .ai-content { display: flex; align-items: center; gap: 60px; }
+        .ai-text { flex: 1; }
+        .ai-text h2 { font-size: 36px; margin-bottom: 25px; color: var(--accent); }
+        .ai-text p { font-size: 18px; line-height: 1.8; margin-bottom: 30px; opacity: 0.9; }
+        .ai-image { flex: 1; border-radius: 15px; overflow: hidden; border: 1px solid rgba(197, 160, 89, 0.3); }
+        .ai-image img { width: 100%; display: block; filter: brightness(0.8); }
+
+        /* 교육 신청 안내 */
+        .apply-info { padding: 100px 0; background: var(--light-bg); text-align: center; }
+        .apply-steps { display: flex; justify-content: space-around; margin-top: 50px; }
+        .step { position: relative; width: 20%; }
+        .step .num { width: 50px; height: 50px; background: var(--accent); color: #fff; border-radius: 50%; display: flex; align-items: center; justify-content: center; margin: 0 auto 20px; font-weight: 700; font-size: 20px; }
+        .step h4 { font-size: 18px; color: var(--primary); }
+
+        /* Footer (공통) */
+        .footer { background: #222; color: #999; padding: 60px 0; font-size: 14px; }
+        .footer .container { border-top: 1px solid #444; padding-top: 30px; }
+
+        @media (max-width: 992px) {
+            .course-grid { grid-template-columns: 1fr 1fr; }
+            .ai-content { flex-direction: column; }
+        }
+        @media (max-width: 600px) {
+            .course-grid { grid-template-columns: 1fr; }
+            .apply-steps { flex-direction: column; gap: 40px; }
+        }
+    </style>
+</head>
+<body>
+
+    <header class="header">
+        <div class="container">
+            <a href="index.html" class="logo" style="text-decoration:none;">KLSEA <span style="font-size:14px; font-weight:400; color:#777; margin-left:8px;">한국법률서비스교육협회</span></a>
+            <nav class="gnb">
+                <ul>
+                    <li><a href="index.html">홈</a></li>
+                    <li><a href="about.html">협회소개</a></li>
+                    <li><a href="education.html" class="active">교육사업</a></li>
+                    <li><a href="certification.html">자격증시험</a></li>
+                    <li><a href="community.html">고객지원</a></li>
+                </ul>
+            </nav>
+            <div style="display:flex; align-items:center; gap:15px;">
+                <a href="certification.html" style="padding:7px 14px; border:1.5px solid var(--accent); border-radius:4px; color:var(--accent); font-size:14px; font-weight:700; text-decoration:none;">자격증 진위확인</a>
+            </div>
+        </div>
+    </header>
+
+    <section class="sub-hero">
+        <div class="container">
+            <h1>교육사업</h1>
+            <p>법률 실무 역량과 AI 활용 기술의 완벽한 조화</p>
+        </div>
+    </section>
+
+    <!-- 과정 소개 -->
+    <section class="course-section container">
+        <div class="section-title">
+            <h2>전문 교육 과정</h2>
+            <div class="bar"></div>
+        </div>
+        
+        <div class="course-grid">
+            <!-- 과정 1: 법전 이미지 -->
+            <div class="course-card">
+                <div class="course-img">
+                    <img src="https://images.unsplash.com/photo-1589994160839-163cd2b5cfdf?auto=format&fit=crop&q=80&w=800" alt="법전">
+                </div>
+                <div class="course-info">
+                    <span class="tag">실무 입문</span>
+                    <h3>법률 실무 기초 과정</h3>
+                    <p>민사/형사 절차론부터 법률 서면 작성의 기초까지, 법률 분야 진입을 위한 필수 코스입니다.</p>
+                    <a href="#" class="btn-more">상세보기 &rarr;</a>
+                </div>
+            </div>
+
+            <!-- 과정 2: 저울 이미지 -->
+            <div class="course-card">
+                <div class="course-img">
+                    <img src="https://images.unsplash.com/photo-1505664194779-8beaceb93744?auto=format&fit=crop&q=80&w=800" alt="저울">
+                </div>
+                <div class="course-info">
+                    <span class="tag">전문가 심화</span>
+                    <h3>법률 사무 전문가 코스</h3>
+                    <p>현업 종사자를 위한 소송 실무 심화 교육 및 기업 법무 관리 역량을 강화합니다.</p>
+                    <a href="#" class="btn-more">상세보기 &rarr;</a>
+                </div>
+            </div>
+
+            <!-- 과정 3: 법원 건물/기둥 이미지 -->
+            <div class="course-card">
+                <div class="course-img">
+                    <img src="https://images.unsplash.com/photo-1521587760476-6c12a4b040da?auto=format&fit=crop&q=80&w=800" alt="도서관">
+                </div>
+                <div class="course-info">
+                    <span class="tag">취업 특성화</span>
+                    <h3>취업/전직 성공 패키지</h3>
+                    <p>취업준비생 및 전직희망자를 위한 맞춤형 포트폴리오 구성 및 취업 지원 교육입니다.</p>
+                    <a href="#" class="btn-more">상세보기 &rarr;</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- AI 특성화 교육 섹션 -->
+    <section class="ai-special">
+        <div class="container ai-content">
+            <div class="ai-text">
+                <h2>Legal AI 기술 활용 교육</h2>
+                <p>
+                    리걸테크(Legal Tech)의 핵심인 AI 도구를 활용하여<br>
+                    <strong>법률 문서 자동 분석, 판례 요약, 리서치 효율화</strong>를<br>
+                    직접 실무에 적용하는 최첨단 교육을 제공합니다.
+                </p>
+                <p style="font-size: 16px; opacity: 0.8;">※ 본 교육은 협회 산하 AI 연구소와 공동 개발한 커리큘럼으로 진행됩니다.</p>
+            </div>
+            <div class="ai-image">
+                <img src="https://images.unsplash.com/photo-1451187580459-43490279c0fa?auto=format&fit=crop&q=80&w=800" alt="기술 이미지">
+            </div>
+        </div>
+    </section>
+
+    <!-- 신청 프로세스 -->
+    <section class="apply-info">
+        <div class="container">
+            <div class="section-title">
+                <h2>교육 신청 절차</h2>
+                <div class="bar"></div>
+            </div>
+            <div class="apply-steps">
+                <div class="step">
+                    <div class="num">01</div>
+                    <h4>과정 상담/선택</h4>
+                </div>
+                <div class="step">
+                    <div class="num">02</div>
+                    <h4>수강신청 접수</h4>
+                </div>
+                <div class="step">
+                    <div class="num">03</div>
+                    <h4>교육비 납부</h4>
+                </div>
+                <div class="step">
+                    <div class="num">04</div>
+                    <h4>학습 시작</h4>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <footer class="footer" style="background: #1A2B4C; color: #abb8cc; padding: 60px 0;">
+        <div class="container">
+            <span style="font-size:20px; font-weight:700; color:#fff; display:block; margin-bottom:20px;">KLSEA 한국법률서비스교육협회</span>
+            <p style="font-size:14px; margin-bottom:6px;">서울특별시 서초구 법조타운로 123, 법률교육빌딩 5층</p>
+            <p style="font-size:14px; margin-bottom:6px;">대표전화: 02-123-4567 | 팩스: 02-123-4568 | 이메일: info@klsea.or.kr</p>
+            <p style="margin-top:30px; padding-top:20px; border-top:1px solid rgba(255,255,255,0.1); font-size:13px;">Copyright © 2024 KLSEA. All Rights Reserved.</p>
+        </div>
+    </footer>
+
+</body>
+</html>
